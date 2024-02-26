@@ -7,22 +7,37 @@ import java.util.Scanner;
 public class ActividadResuelta4_6 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        System.out.print("Inserte un numero->");
-        int n=sc.nextInt();
-        for (int i =1;i<=15;i++){
-            if (esPrimo(n)){
-                System.out.println(n+" Es Primo");
-            }else{
-                System.err.println(n+ "No es Primo  ");
+        System.out.println("Introduce un numero");
+        int num= sc.nextInt();
+        System.out.println("El numero "+num+ " es "+esPrimo(num));
+
+
+        /**
+        for (int i = 1; i <= 15; i++) {
+            if (esPrimo(i)) {
+                System.out.println(i + "Es primo");
+            } else {
+                System.err.println(i + "No es primo");
             }
         }
+         **/
     }
-    static boolean esPrimo(int n){
-        boolean primo=true;
-       if (n%==0){
-           primo=false;
-        }else{
-           primo= true;
+
+    static String esPrimo(int num) {
+        int i = 2;
+        String text="Es Primo ";
+        boolean primo = true;
+        if (num < 2) {
+            primo = false;
+             text="No es primo";
         }
+        while (i < num && primo == true) {
+            if (num % i == 0) {
+                primo = false;
+                text="No es primo";
+            }
+            i++;
+        }
+        return (text);
     }
 }
